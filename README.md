@@ -46,3 +46,4 @@
 - pages 폴더의 about.js => my-domain.com/about
 - pages 폴더의 하위 폴더 portfolio의 index.js => my-domain.com/portfolio
 - portfolio 폴더의 [id].js => my-domain.com/portfolio/id(동적으로 변하는 id값) : 동적 페이지 라우팅
+- 동적 세그먼트 값에 접근하는 방법 => useRouter 임포트, route.pathname, route.query
