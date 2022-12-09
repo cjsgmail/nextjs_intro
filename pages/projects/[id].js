@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Header from "../../components/Header";
 
 export default function PortfolioProjectPage() {
   const router = useRouter();
@@ -8,6 +9,7 @@ export default function PortfolioProjectPage() {
 
   return (
     <div>
+      <Header />
       <h1>The Portfolio Project Page</h1>
     </div>
   );

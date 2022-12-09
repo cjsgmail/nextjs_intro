@@ -47,3 +47,14 @@
 - pages 폴더의 하위 폴더 portfolio의 index.js => my-domain.com/portfolio
 - portfolio 폴더의 [id].js => my-domain.com/portfolio/id(동적으로 변하는 id값) : 동적 페이지 라우팅
 - 동적 세그먼트 값에 접근하는 방법 => useRouter 임포트, route.pathname, route.query
+
+### 404에러 페이지
+
+- pages 폴더 하위에 404.js 생성
+- 나만의 커스텀 404 페이지 만들기
+
+### Next.js 에서 styled-comopnents 사용하기
+
+- 자바스크립트 코드가 적용이 되지 않은 페이지가 미리 렌더링되기 때문에 CSS-in-JS로 스타일링을 하면 스타일이 적용되지 않은 html 코드가 먼저 렌더링되는 문제가 발생하게 된다.
+- babel 설정과 \_document 설정
+- 레퍼런스 : https://taenami.tistory.com/69
