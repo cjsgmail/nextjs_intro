@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import styled from "styled-components";
 import ProfileImg from "../images/ProfileImg.webp";
 import Image from "next/image";
-import Link from "next/link";
+import Intro from "../components/Intro";
 
 const MainCotainer = styled.main`
   width: 100%;
@@ -42,15 +42,23 @@ const ContactContainer = styled.div`
   align-items: center;
   justify-content: center;
   color: #3b5bdb;
+  overflow: hidden;
 `;
 
 const AboutContainer = styled.div`
   height: 300px;
+  width: 300vw;
   padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: black;
+`;
+
+const SlideBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const AboutContent = styled.div`
@@ -90,24 +98,28 @@ export default function Home() {
         <ContactContainer>
           <H1>About Me</H1>
           <AboutContainer>
-            <AboutContent>
-              <H2>생년월일</H2>
-              <div>1997.06.02</div>
-            </AboutContent>
-            <AboutContent>
-              <H2>전화번호</H2>
-              <div>010-2035-9863</div>
-            </AboutContent>
-            <AboutContent>
-              <H2>이메일</H2>
-              <div>cjs0097@gmail.com</div>
-            </AboutContent>
-            <AboutContent>
-              <H2>깃허브</H2>
-              <GitLink href="https://github.com/cjsgmail">
-                https://github.com/cjsgmail
-              </GitLink>
-            </AboutContent>
+            <SlideBox>
+              <AboutContent>
+                <H2>생년월일</H2>
+                <div>1997.06.02</div>
+              </AboutContent>
+              <AboutContent>
+                <H2>전화번호</H2>
+                <div>010-2035-9863</div>
+              </AboutContent>
+              <AboutContent>
+                <H2>이메일</H2>
+                <div>cjs0097@gmail.com</div>
+              </AboutContent>
+              <AboutContent>
+                <H2>깃허브</H2>
+                <GitLink href="https://github.com/cjsgmail">
+                  https://github.com/cjsgmail
+                </GitLink>
+              </AboutContent>
+            </SlideBox>
+            <SlideBox></SlideBox>
+            <SlideBox></SlideBox>
           </AboutContainer>
         </ContactContainer>
       </MainCotainer>
