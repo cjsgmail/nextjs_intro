@@ -3,6 +3,16 @@ import styled from "styled-components";
 import ProfileImg from "../images/ProfileImg.webp";
 import Image from "next/image";
 import Intro from "../components/Intro";
+import { useEffect, useRef, useState } from "react";
+
+const GitLink = styled.a`
+  color: black;
+`;
+
+const H2 = styled.h2`
+  color: #3b5bdb;
+  margin-bottom: 20px;
+`;
 
 const MainCotainer = styled.main`
   width: 100%;
@@ -56,6 +66,7 @@ const AboutContainer = styled.div`
 `;
 
 const SlideBox = styled.div`
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,16 +77,37 @@ const AboutContent = styled.div`
   padding: 0 20px;
 `;
 
-const GitLink = styled.a`
-  color: black;
-`;
+const PrevButton = styled.button``;
 
-const H2 = styled.h2`
-  color: #3b5bdb;
-  margin-bottom: 20px;
-`;
+const NextButton = styled.button``;
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slideRef = useRef(null);
+  const TOTAL_SLIDES = 2;
+
+  const Prev = () => {
+    if (currentSlide === 0) {
+      // 더 이상 넘어갈 슬라이드가 없으면
+      setCurrentSlide(TOTAL_SLIDES); // 1번째 슬라이드로 넘어갑니다.
+    } else {
+      setCurrentSlide(currentSlide - 1);
+    }
+  };
+
+  const Next = () => {
+    if (currentSlide >= TOTAL_SLIDES) {
+      setCurrentSlide(0); // 마지막 슬라이드로 넘어갑니다.
+    } else {
+      setCurrentSlide(currentSlide + 1);
+    }
+  };
+
+  useEffect(() => {
+    slideRef.current.style.transition = "all 1s ease-in-out";
+    slideRef.current.style.transform = `translateX(-${currentSlide}00vw)`; // 백틱을 사용하여 슬라이드로 이동하는 에니메이션을 만듭니다.
+  }, [currentSlide]);
+
   return (
     <div>
       <Header />
@@ -97,7 +129,7 @@ export default function Home() {
         </MyIntroContainer>
         <ContactContainer>
           <H1>About Me</H1>
-          <AboutContainer>
+          <AboutContainer ref={slideRef}>
             <SlideBox>
               <AboutContent>
                 <H2>생년월일</H2>
@@ -118,9 +150,17 @@ export default function Home() {
                 </GitLink>
               </AboutContent>
             </SlideBox>
-            <SlideBox></SlideBox>
-            <SlideBox></SlideBox>
+
+            <SlideBox>
+              <div>안녕하세요</div>
+            </SlideBox>
+
+            <SlideBox>
+              <div>안녕히가세요</div>
+            </SlideBox>
           </AboutContainer>
+          <PrevButton onClick={Prev}>-</PrevButton>
+          <NextButton onClick={Next}>+</NextButton>
         </ContactContainer>
       </MainCotainer>
     </div>
