@@ -2,11 +2,12 @@ import styled from "styled-components";
 import { useEffect, useRef, useState } from "react";
 import Intro from "./Intro";
 import { H2 } from "../pages";
+import Contact from "./Contact";
 
 const CarouselContainer = styled.div`
   position: relative;
   width: 100vw;
-  height: 500px;
+  height: 700px;
   overflow: hidden;
 `;
 
@@ -76,11 +77,13 @@ export default function Carousel() {
       <Content ref={slideRef}>
         <div>
           <Slide>
-            <Intro />
+            <Contact />
           </Slide>
         </div>
         <div>
-          <Slide>안녕하세요</Slide>
+          <Slide>
+            <Intro />
+          </Slide>
         </div>
         <div>
           <Slide>안녕히가세요</Slide>

@@ -27,7 +27,7 @@ const MyIntroContainer = styled.section`
   align-items: center;
   justify-content: center;
   background-color: #edf2ff;
-  color: #3b5bdb;
+  color: #364fc7;
 `;
 
 const ImageContainer = styled.div`
