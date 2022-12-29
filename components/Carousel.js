@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Intro from "./Intro";
 import { H2 } from "../pages";
 import Contact from "./Contact";
+import Stack from "./Stack";
 
 const CarouselContainer = styled.div`
   position: relative;
@@ -86,7 +87,9 @@ export default function Carousel() {
           </Slide>
         </div>
         <div>
-          <Slide>안녕히가세요</Slide>
+          <Slide>
+            <Stack />
+          </Slide>
         </div>
       </Content>
       <ButtonContainer>

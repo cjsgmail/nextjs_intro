@@ -13,6 +13,7 @@ export const H2 = styled.h2`
 `;
 
 const MainCotainer = styled.main`
+  background-color: #edf2ff;
   width: 100%;
   height: 100%;
   display: flex;
@@ -26,7 +27,6 @@ const MyIntroContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #edf2ff;
   color: #364fc7;
 `;
 
