@@ -43,6 +43,23 @@ const H1 = styled.div`
   margin-left: 30px;
 `;
 
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+`;
+
+const Text = styled.div`
+  margin-top: 30px;
+  margin-left: 30px;
+  padding: 20px;
+  border-radius: 30px;
+  background-color: white;
+  color: black;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+`;
+
 export default function Home() {
   return (
     <div>
@@ -58,10 +75,25 @@ export default function Home() {
               placeholder="blur"
             ></Image>
           </ImageContainer>
-          <H1>
-            웹 프론트엔드 개발자 <br />
-            최정석의 포트폴리오 입니다.
-          </H1>
+          <TextContainer>
+            <H1>
+              웹 프론트엔드 개발자 <br />
+              최정석의 포트폴리오 입니다.
+            </H1>
+            <Text>
+              React 중심으로 웹 개발이 가능한 프론트엔드 개발자 최정석입니다.
+              직무로 개발자를 선택하기 전에 대외활동에서 개발자와 대화할 기회가
+              있었습니다. 새로운 것을 배우는 걸 좋아하기 때문에 개발자는 계속
+              변화하는 상황에서 새로운 것을 공부해야 한다는 것에 매력을
+              느꼈습니다. 그래서 개발자 학습을 가볍게 시작해 보았고 작성하는
+              코드에 따라 화면이 변화하는 것에 매력을 느껴 프론트엔드 학습에
+              집중했습니다. 이후 학습하고 있는 프론트엔드 개발을 직업으로 하기
+              위해 고민을 했고 24주 과정 웹 개발 부트캠프인 코드 스테이츠를
+              선택하고 수료했습니다. 수료 이후 부트캠프에서 다뤘던 프로젝트에
+              반응형을 구현하고 있습니다. 그리고 제가 프로젝트 기간 중
+              경험해보지 못한 NextJS를 학습하고 있습니다.
+            </Text>
+          </TextContainer>
         </MyIntroContainer>
         <Carousel />
       </MainCotainer>

@@ -1,9 +1,15 @@
 import styled from "styled-components";
 import { useEffect, useRef, useState } from "react";
 import Intro from "./Intro";
-import { H2 } from "../pages";
 import Contact from "./Contact";
 import Stack from "./Stack";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronRight,
+  faChevronLeft,
+  faPause,
+  faPlay,
+} from "@fortawesome/free-solid-svg-icons";
 
 const CarouselContainer = styled.div`
   position: relative;
@@ -28,11 +34,17 @@ const Slide = styled.div`
 `;
 
 const ButtonContainer = styled.div`
-  position: absolute;
   display: flex;
   justify-content: center;
   width: 100%;
-  bottom: 1rem;
+  position: absolute;
+`;
+
+const NextButtonContainer = styled(ButtonContainer)`
+  top: 50%;
+`;
+const PlayButtonContainer = styled(ButtonContainer)`
+  bottom: 10%;
 `;
 
 const Title = styled.h1`
@@ -42,11 +54,41 @@ const Title = styled.h1`
   color: #748ffc;
 `;
 
-const NextButton = styled.button``;
-const PrevButton = styled.button``;
+const Button = styled.button`
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const NextButton = styled(Button)`
+  right: 3rem;
+`;
+const PrevButton = styled(Button)`
+  left: 3rem;
+`;
+const StartButton = styled.button`
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  margin-left: 5px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+const PauseButton = styled.button`
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 export default function Carousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPlay, setIsPlay] = useState(true);
+
   const slideRef = useRef(null);
   const TOTAL_SLIDES = 2;
 
@@ -72,30 +114,65 @@ export default function Carousel() {
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`; // 백틱을 사용하여 슬라이드로 이동하는 에니메이션을 만듭니다.
   }, [currentSlide]);
 
+  useEffect(() => {
+    let timer;
+    // 재생중 3초 간격으로 슬라이드 변화
+    if (isPlay) {
+      timer = setTimeout(() => {
+        if (currentSlide >= TOTAL_SLIDES) {
+          setCurrentSlide(0);
+        } else {
+          setCurrentSlide(currentSlide + 1);
+        }
+      }, 3000);
+    }
+    // 일시정지 버튼을 누를 경우 타이머를 제거하여 해당 이미지에 정지.
+    return () => {
+      clearTimeout(timer);
+    };
+  });
+
   return (
-    <CarouselContainer>
-      <Title>About Me</Title>
-      <Content ref={slideRef}>
-        <div>
-          <Slide>
-            <Contact />
-          </Slide>
-        </div>
-        <div>
-          <Slide>
-            <Intro />
-          </Slide>
-        </div>
-        <div>
-          <Slide>
-            <Stack />
-          </Slide>
-        </div>
-      </Content>
-      <ButtonContainer>
-        <PrevButton onClick={Prev}>이전</PrevButton>
-        <NextButton onClick={Next}>다음</NextButton>
-      </ButtonContainer>
-    </CarouselContainer>
+    <>
+      <CarouselContainer>
+        <Title>About Me</Title>
+        <Content ref={slideRef}>
+          <div>
+            <Slide>
+              <Contact />
+            </Slide>
+          </div>
+          <div>
+            <Slide>
+              <Intro />
+            </Slide>
+          </div>
+          <div>
+            <Slide>
+              <Stack />
+            </Slide>
+          </div>
+        </Content>
+        <NextButtonContainer>
+          <PrevButton onClick={Prev}>
+            <FontAwesomeIcon icon={faChevronLeft} size="lg" />
+          </PrevButton>
+          <NextButton onClick={Next}>
+            <FontAwesomeIcon icon={faChevronRight} size="lg" />
+          </NextButton>
+        </NextButtonContainer>
+        <PlayButtonContainer>
+          {isPlay ? (
+            <PauseButton onClick={() => setIsPlay(!isPlay)}>
+              <FontAwesomeIcon icon={faPause} size="lg" />
+            </PauseButton>
+          ) : (
+            <StartButton onClick={() => setIsPlay(!isPlay)}>
+              <FontAwesomeIcon icon={faPlay} size="lg" />
+            </StartButton>
+          )}
+        </PlayButtonContainer>
+      </CarouselContainer>
+    </>
   );
 }
