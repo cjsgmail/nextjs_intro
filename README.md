@@ -58,3 +58,25 @@
 - 자바스크립트 코드가 적용이 되지 않은 페이지가 미리 렌더링되기 때문에 CSS-in-JS로 스타일링을 하면 스타일이 적용되지 않은 html 코드가 먼저 렌더링되는 문제가 발생하게 된다.
 - babel 설정과 \_document 설정
 - 레퍼런스 : https://taenami.tistory.com/69
+
+### Next.js 에서 데이터 fetching
+
+- 빌드 시 밀 데이터를 한번 fetching 하는 방법
+
+```js
+export async function getStaticProps(context) {
+  return {
+    props: {}, // will be passed to the page component as props
+  };
+}
+```
+
+- 데이터 변경이 있을 때마다 fetching 하는 방법
+
+```js
+export async function getServerSideProps(context) {
+  return {
+    props: {}, // will be passed to the page component as props
+  };
+}
+```

@@ -1,3 +1,11 @@
-export default function Project() {
-  return <div>프로젝트 박스</div>;
+import styled from "styled-components";
+
+export default function Project({ projectsTitle }) {
+  return (
+    <div>
+      <div>{projectsTitle[0]}</div>
+      <div>{projectsTitle[1]}</div>
+      <div>{projectsTitle[2]}</div>
+    </div>
+  );
 }
