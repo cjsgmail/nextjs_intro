@@ -12,12 +12,16 @@ const ProjectsContainer = styled.div`
   top: 5rem;
 `;
 
-function PortfolioPage({ projectsTitle }) {
+function PortfolioPage({ projectsTitle, coverImage, tags }) {
   return (
     <div>
       <Header />
       <ProjectsContainer>
-        <Project projectsTitle={projectsTitle} />
+        <Project
+          projectsTitle={projectsTitle}
+          coverImage={coverImage}
+          tags={tags}
+        />
       </ProjectsContainer>
     </div>
   );
@@ -46,7 +50,15 @@ export async function getServerSideProps() {
     return el.properties.Name.title[0].plain_text;
   });
 
+  const coverImage = projects.results.map((el) => {
+    return el.cover.file.url;
+  });
+
+  const tags = projects.results.map((el) => {
+    return el.properties.Tags;
+  });
+
   return {
-    props: { projectsTitle },
+    props: { projectsTitle, coverImage, tags },
   };
 }

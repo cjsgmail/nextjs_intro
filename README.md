@@ -80,3 +80,14 @@ export async function getServerSideProps(context) {
   };
 }
 ```
+
+- 이미지를 도메인에서 받아와 사용할 때 next.config.js
+
+```js
+const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    domains: ["s3.us-west-2.amazonaws.com"],
+  },
+};
+```
