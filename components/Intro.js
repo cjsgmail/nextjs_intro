@@ -8,7 +8,7 @@ export const Introduce = styled.div`
   align-items: center;
   justify-content: center;
   height: 200px;
-  width: 1000px;
+  width: 70%;
   padding: 20px;
   border-radius: 30px;
   background-color: white;

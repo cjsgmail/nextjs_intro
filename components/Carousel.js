@@ -64,10 +64,10 @@ const Button = styled.button`
 `;
 
 const NextButton = styled(Button)`
-  right: 3rem;
+  right: 10%;
 `;
 const PrevButton = styled(Button)`
-  left: 3rem;
+  left: 10%;
 `;
 const StartButton = styled.button`
   background-color: rgba(255, 255, 255, 0);

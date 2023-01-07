@@ -6,7 +6,7 @@ const Stacks = styled.div`
   align-items: center;
   justify-content: space-around;
   height: 200px;
-  width: 1000px;
+  width: 70%;
   padding: 20px;
   border-radius: 30px;
   background-color: white;
