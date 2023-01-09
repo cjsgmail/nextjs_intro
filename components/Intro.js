@@ -18,7 +18,7 @@ export const Introduce = styled.div`
 `;
 
 const Strength = styled.div`
-  width: 250px;
+  width: 100%;
 `;
 
 export default function Intro() {

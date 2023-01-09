@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ProfileImg from "../images/ProfileImg.webp";
 import Image from "next/image";
 import Carousel from "../components/Carousel";
+import Head from "next/head";
 
 export const GitLink = styled.a`
   color: black;
@@ -68,6 +69,25 @@ const Highlight = styled.span`
 export default function Home() {
   return (
     <div>
+      <Head>
+        <title>최정석의 포트폴리오</title>
+        <meta property="og:title" content="최정석의 포트폴리오" key="title" />
+        <meta
+          name="description"
+          content="웹 프론트엔드 개발자 최정석의 포트폴리오 입니다."
+        />
+        <meta name="keywords" content="웹 개발자, 웹 프론트엔드, 포트폴리오" />
+        <meta property="og:image" content={ProfileImg} />
+        <meta property="og:title" content="최정석의 포트폴리오" />
+        <meta
+          property="og:description"
+          content="웹 프론트엔드 개발자 최정석의 포트폴리오 입니다."
+        />
+        <meta
+          property="og:url"
+          content="https://jeongseok-potfolio.vercel.app/"
+        />
+      </Head>
       <Header />
       <MainCotainer>
         <MyIntroContainer>

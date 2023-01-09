@@ -116,7 +116,7 @@ export default function Carousel() {
 
   useEffect(() => {
     let timer;
-    // 재생중 3초 간격으로 슬라이드 변화
+    // 재생중 5초 간격으로 슬라이드 변화
     if (isPlay) {
       timer = setTimeout(() => {
         if (currentSlide >= TOTAL_SLIDES) {
@@ -124,7 +124,7 @@ export default function Carousel() {
         } else {
           setCurrentSlide(currentSlide + 1);
         }
-      }, 3000);
+      }, 5000);
     }
     // 일시정지 버튼을 누를 경우 타이머를 제거하여 해당 이미지에 정지.
     return () => {

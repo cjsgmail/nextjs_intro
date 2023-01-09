@@ -6,7 +6,6 @@ import {
   faCodeBranch,
   faLink,
 } from "@fortawesome/free-solid-svg-icons";
-import { GitLink } from "../pages";
 
 const ProjectCardContainer = styled.div`
   width: 100%;
@@ -86,7 +85,6 @@ export default function Project({ projectsTitle, coverImage, tags }) {
   const dailyClubTags = tags[1].multi_select;
   const portfolioTags = tags[0].multi_select;
   const catMbtiTags = tags[2].multi_select;
-  console.log();
 
   return (
     <ProjectCardContainer>
