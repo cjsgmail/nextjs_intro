@@ -77,7 +77,10 @@ export default function Home() {
           content="웹 프론트엔드 개발자 최정석의 포트폴리오 입니다."
         />
         <meta name="keywords" content="웹 개발자, 웹 프론트엔드, 포트폴리오" />
-        <meta property="og:image" content={ProfileImg} />
+        <meta
+          property="og:image"
+          content="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F72e32bf2-3d7d-45d9-9f21-5bea2e5bc22d%2F%25E1%2584%2589%25E1%2585%25B3%25E1%2584%258F%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25B5%25E1%2586%25AB%25E1%2584%2589%25E1%2585%25A3%25E1%2586%25BA_2023-01-04_%25E1%2584%258B%25E1%2585%25A9%25E1%2584%2592%25E1%2585%25AE_2.50.55.png?table=block&id=7103fdf6-ad73-41b0-aaa6-74af48683502&spaceId=1d3014fb-e965-4584-8526-c1bcf17e178b&width=2000&userId=9e079f72-59e8-461a-9452-b9a7e0cbc9e7&cache=v2"
+        />
         <meta property="og:title" content="최정석의 포트폴리오" />
         <meta
           property="og:description"
